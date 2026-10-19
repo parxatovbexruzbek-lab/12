@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TestZona — test yaratish va ishlash</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>TestZona</h1>
+  <nav>
+    <button data-v="add" class="active">Test qo‘shish</button>
+    <button data-v="take">Test ishlash</button>
+    <button data-v="mine">Mening testlarim</button>
+    <button data-v="done">Yechilgan testlar</button>
+  </nav>
+</header>
+
+<main>
+  <section id="add" class="view">
+    <h2>Yangi test</h2>
+    <label>Test nomi<input id="tTitle" placeholder="Masalan: Informatika 9-sinf, 1-test"></label>
+
+    <div class="card">
+      <h3>Savolni qo‘lda kiritish</h3>
+      <label>Savol<textarea id="qText" rows="2"></textarea></label>
+      <div class="grid2">
+        <label>A varianti<input id="o0"></label>
+        <label>B varianti<input id="o1"></label>
+        <label>C varianti<input id="o2"></label>
+        <label>D varianti<input id="o3"></label>
+      </div>
+      <label>To‘g‘ri javob
+        <select id="qAns"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+      </label>
+      <button id="addQ" class="primary">Savolni qo‘shish</button>
+    </div>
+
+    <div class="card">
+      <h3>Matndan ko‘plab savol qo‘shish</h3>
+      <p class="hint">Savollar orasida bo‘sh qator qoldiring. Har savol: savol matni, A) B) C) D) variantlar va “Javob: B” qatori.</p>
+      <textarea id="bulk" rows="9" placeholder="1. Qaysi biri kiritish qurilmasi?&#10;A) Printer&#10;B) Monitor&#10;C) Skaner&#10;D) Plotter&#10;Javob: C&#10;&#10;2. Savol matni...&#10;A) ...&#10;B) ...&#10;C) ...&#10;D) ...&#10;Javob: A"></textarea>
+      <div class="row">
+        <button id="addBulk">Matndan qo‘shish</button>
+        <label class="file">JSON fayldan yuklash<input type="file" id="jsonIn" accept=".json" hidden></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Qo‘shilgan savollar: <span id="dCount">0</span> ta</h3>
+      <div id="draftList"></div>
+      <button id="saveTest" class="primary">Testni saqlash</button>
+    </div>
+  </section>
+
+  <section id="take" class="view" hidden>
+    <div id="picker"></div>
+    <div id="runner" hidden></div>
+    <div id="result" hidden></div>
+  </section>
+
+  <section id="mine" class="view" hidden>
+    <h2>Mening testlarim</h2>
+    <div id="mineList"></div>
+  </section>
+
+  <section id="done" class="view" hidden>
+    <h2>Yechilgan testlar</h2>
+    <div id="doneList"></div>
+    <div id="detail"></div>
+  </section>
+</main>
+
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
